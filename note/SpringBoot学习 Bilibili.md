@@ -1,0 +1,49 @@
+# SpringBoot学习 Bilibili
+
+> bilibili 网址:  https://www.bilibili.com/video/BV1Et411Y7tQ?from=search&seid=59815044918958369
+
+## SpringBoot 入门
+
+- 简介
+  - 简化Spring应用开发 
+  - 对Spring技术栈的一个整合
+  - J2EE的一站式解决方案
+- hello world
+- 原理分析
+- 微服务 (架构风格: 服务微化)
+  - martin fowler
+  - 每一个元素部署后动态组合 通过http方式进行互通
+  - 节省资源 每一个小功能都是可以替换的代码块
+  - All In One   (之前开发模式)
+    - 开发测试简单,部署简单,水平扩展简单
+    - 如果一个小修改应用就需要重新部署 日益增长的软件需求
+
+## SpringBoot 配置
+
+## SpringBoot 与日志
+
+## SpringBoot 与Web开发
+
+## SpringBoot 与Docker
+
+## SpringBoot 与数据访问
+
+## SpringBoot 与启动配置原理
+
+## SpringBoot 自定义starter
+
+## SpringBoot 与缓存
+
+## SpringBoot 与消息
+
+## SpringBoot 与检索
+
+## SpringBoot 与任务
+
+## SpringBoot 与安全
+
+## SpringBoot 与分布式
+
+## SpringBoot 与开发热部署
+
+## SpringBoot 与监控管理
