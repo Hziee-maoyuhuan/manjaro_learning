@@ -56,9 +56,29 @@
 
 ## IOC理论推导
 
-### 以前的写法
+### 写法对比
 
 1. UserDao接口
 2. UserDaoImpl实现类
 3. UserService业务接口
 4. UserServiceImpl业务实现类
+
+- 之前业务中,用户需求会影响代码,需要根据用户需求去修改代码 如果代码量大,则代价高
+
+- 使用set接口实现 (革命性变化)
+
+  ```java
+  原先写法:
+  	private UserDao userDao = new UserDaoImpl();
+  修改写法: 
+  	public void setUserDao(UserDao userDao) { this.userDao = userDao; }
+  ```
+
+  - 原先 程序主动创建对象 控制权在程序 所以用户需求会导致代码修改
+  - 现在 程序不再具有主动性 使用set注入 变成被动接受对象 只需要扩展类而不用改程序
+  - 这就是控制反转: 将主动权从程序变成用户 思想差距需要多写代码
+  - 从本质上解决问题 程序员不用再管理对象的创建了 系统耦合性大大降低 可以更加专注在业务实现  这就是IOC原型
+
+### IOC本质
+
+- 控制反转IOC是一种设计思想 依赖注入DI是实现IOC的一种方法
