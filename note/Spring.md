@@ -30,6 +30,19 @@
 </dependency>
 ```
 
+### Spring 家族的组成
+
+![image-20201204143236155](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201204143236155.png)
+
+![image-20201204143113512](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201204143113512.png)
+
+- Spring Boot
+	- 一个快速开发的脚手架
+	- 基于SpringBoot可以开发单个微服务
+	- 约定大于配置
+	- SpringCloud是基于SpringBoot实现的
+	- 众多公司基于Spring boot进行开发 需要掌握Spring和SpringMVC
+
 ### 优点
 
 - Spring 是一个开源免费的框架(容易)
@@ -41,18 +54,6 @@
 ### 弊端
 
 - 由于发展太久,违背原来的理念,配置复杂
-
-### 组成
-
-- 组成内容: Spring AOP/Spring ORM/Spring Web/Spring DAO/Spring Context/Spring  Core/Spring Web Mvc
-
-### 拓展
-
-- 官网学习路线: 构建一切 协调一切 连接一切e
-- 现代化的Java开发 基于Spring的开发
-- Spring Boot 一个快速开发的脚手架 可以快速开发单个微服务 约定大于配置
-- Spring Cloud 基于Spring Boot实现的
-- 众多公司基于Spring boot进行开发 需要掌握Spring和SpringMVC
 
 ## IOC理论推导
 
@@ -88,4 +89,6 @@
 	![image-20201203153406348](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201203153406348.png)
 - 采用XML方式配置Bean(需要学)的时候,Bean的定义信息是和实现分离的,而采用注解方式可以把两者合为一体,Bean的定义信息直接以注解的方式定义在实现类中,实现0配置的目的
 - 控制反转是一种通过描述(XML或者注解)并通过第三方去生产或获取特定对象的过程.在Spring中实现控制反转的是IoC容器,实现方法是依赖注入DI
+
+## Hello Spring
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    使用Spring创建对象 一个bean就相当与创建了一个对象-->
+    <bean id="hello" class="com.hziee.myh.pojo.Hello">
+        <!--        可以对参数进行赋值-->
+        <property name="name" value="Spring"/>
+    </bean>
+
+    <!--
+        控制反转IoC 让容器(Beans)创建对象 使用只需要从容器获取即可 一种编程思想
+        原写法:    对象由程序本身控制创建
+            类型 变量名 = new 类型();      -> Hello hello = new Hello();
+        转换写法:   对象由Spring进行创建 程序被动接收对象 使用set方式注入
+            id = 变量名
+            class = new 的对象；
+
+        类如果没有被实例化(被Spring托管) 则仅是一个普通类
+        类如果被托管了则会在旁边出现标记
+
+        彻底不需要在程序中进行改动 实现不同操作只需要在xml配置文件中进行修改 对象由Spring进行创建/管理/装配
+    -->
+</beans>
