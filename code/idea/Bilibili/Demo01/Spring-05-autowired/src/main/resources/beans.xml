@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    开启自动装配-->
+    <context:annotation-config/>
+
+    <bean id="cat" class="cn.hziee.myh.Cat"/>
+    <bean id="dog" class="cn.hziee.myh.Dog"/>
+
+    <bean id="person" class="cn.hziee.myh.Person"/>
+
+    <!--    不使用自动装配-->
+    <!--    <bean id="person" class="cn.hziee.myh.Person">-->
+    <!--        <property name="name" value="Mao Yuhuan"/>-->
+    <!--        <property name="cat" ref="cat"/>-->
+    <!--        <property name="dog" ref="dog"/>-->
+    <!--    </bean>-->
+
+
+    <!--
+        通过byName 名字自动装配
+        原理: 会自动从容器上下文中查找和自己对象set方法后的值对应的bean_id
+        需要保证bean需要和自动注入的属性的set方法一致
+        同理: byType 可以根据类型自动装配 但是局限性大,因为如果有两个同类型的则会报错 可以忽略id
+    -->
+    <!--    <bean id="person" class="cn.hziee.myh.Person" autowire="byName">-->
+    <!--        <property name="name" value="Mao Yuhuan"/>-->
+    <!--    </bean>-->
+
+
+</beans>

@@ -6,9 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Spring-01-ioc" />
+        <module name="Spring-03-ioc2" />
+        <module name="Spring-05-autowired" />
+        <module name="Spring-08-proxyDemo" />
         <module name="Spring-02-helloSpring" />
+        <module name="Spring-06-annotation" />
+        <module name="Spring-01-ioc" />
+        <module name="Spring-07-appconfig" />
+        <module name="Spring-04-di" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Spring-06-Annotation" target="8" />
+      <module name="Spring-08-proxy" target="8" />
+      <module name="untitled" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
