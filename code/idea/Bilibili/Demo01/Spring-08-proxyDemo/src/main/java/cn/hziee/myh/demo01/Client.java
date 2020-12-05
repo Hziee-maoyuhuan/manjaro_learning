@@ -11,8 +11,7 @@ public class Client {
 
 //        第二种方法: 寻找代理 调用代理的方法,实现租房
         Proxy proxy = new Proxy(host);
-        proxy.rent();       // 调用中介(代理)的方法实现 本质还是房东出租房子
-
-
+        // 调用中介(代理)的方法实现 找房东出租房子,不用面对房东 中介会在中间添加一些附属操作
+        proxy.rent();
     }
 }

@@ -367,15 +367,119 @@
 
 ## 代理模式
 
-- 简介
-	- 中介: 帮别人做事 ->代理
-	- 为什么学习代理模式
-		- Spring AOP的底层  [AOP 和 MVC 重要]
-- 分类
-	- 静态代理
-		- 角色分析
-			- 抽象角色 一般使用接口/抽象类解决
-			- 真实角色 被代理的角色
-			- 代理角色 代理真实角色 做附属操作
-			- 客户 访问代理对象的人
-	- 动态代理
+### 简介
+
+- 中介: 帮别人做事 ->代理
+- 为什么学习代理模式
+	- Spring AOP的底层  [AOP 和 MVC 重要]
+
+### 分类
+
+- 静态代理
+
+	- 角色分析
+
+		- 抽象角色 一般使用接口/抽象类解决
+		- 真实角色 被代理的角色
+		- 代理角色 代理真实角色 做附属操作
+		- 客户 访问代理对象的人
+
+	- 代码步骤:
+
+		- 接口
+
+			```java
+			// 接口类 用于实现一个虚拟类对象
+			public interface Rent {
+			    public void rent();
+			}
+			```
+
+		- 真实角色(房主)
+
+			```java
+			// 房东类 租房功能的实现类 继承了租房这个动作并进行实现
+			public class Host implements Rent {
+			
+			    @Override
+			    public void rent() {
+			        // 重写租房的方法
+			        System.out.println("租房");
+			    }
+			}
+			```
+
+		- 代理角色(中介)
+
+			```java
+			// 代理角色 需要代理房东
+			public class Proxy {
+			
+			    private Host host;
+			
+			    public Proxy() {
+			    }
+			
+			    public Proxy(Host host) {       // 设置房东
+			        this.host = host;
+			    }
+			
+			    public void rent() {
+			        seeHouse();
+			        host.rent();    // 代理的功能: 帮房东租房子
+			        contract();
+			        takeMoney();
+			    }
+			
+			    public void seeHouse() {
+			        // 中介做的事情 带客户看房
+			        System.out.println("中介带你看房");
+			    }
+			
+			    public void contract() {
+			        // 中介做的事情 和你签订合同
+			        System.out.println("中介和你签合同");
+			    }
+			
+			    public void takeMoney() {
+			        // 中介做的事情 收取中介费
+			        System.out.println("中介收费");
+			    }
+			
+			}
+			```
+
+		- 用户角色(客户)
+
+			```java
+			// 用房者类
+			public class Client {
+			    public static void main(String[] args) {
+			        // 新建一个房东的角色
+			        Host host = new Host();
+			
+			//        第一种方法: 直接找房东租房子
+			//        host.rent();        // 调用类方法 相当于直接找房东
+			
+			//        第二种方法: 寻找代理 调用代理的方法,实现租房
+			        Proxy proxy = new Proxy(host);
+			        // 调用中介(代理)的方法实现 找房东出租房子,不用面对房东 中介会在中间添加一些附属操作
+			        proxy.rent();
+			    }
+			}
+			```
+
+			
+
+- 动态代理
+
+### 优点
+
+- 可以使真实角色的操作更加纯粹 不用关注公共业务
+- 公共业务交给代理角色 实现业务分工
+- 公共业务发生扩展的时候,方便集中管理
+
+### 缺点
+
+- 一个真实角色就需要产生一个代理角色
+- 代码量翻倍,开发效率低
