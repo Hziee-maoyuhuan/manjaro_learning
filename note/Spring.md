@@ -469,17 +469,187 @@
 			}
 			```
 
-			
+			- 优点
+				- 可以使真实角色的操作更加纯粹 不用关注公共业务
+				- 公共业务交给代理角色 实现业务分工
+				- 公共业务发生扩展的时候,方便集中管理
 
-- 动态代理
+			- 缺点
+				- 一个真实角色就需要产生一个代理角色
+				- 代码量翻倍,开发效率低
 
-### 优点
+- 动态代理 使用反射 动态加载类
+	- 分析角色 和静态代理一致
+	- 动态代理的代理类是自动动态生成而非直接写好的
+	- 分为两大类: 基于接口的动态代理 基于类的动态代理
+		- 基于接口  jdk动态代理
+		- 基于类  cglib
+		- java字节码实现  javasist 简单快速 不需要了解底层 java编码
+	- 主讲jdk动态代理
+		- 需要了解两个类 Proxy代理 InvocationHandler调用处理程序
+			- proxy 反射包下 创建动态代理类的静态方法
+			- invocationHandler 由地理实例调用处理程序实现的接口
+	- 好处
+		- 静态代理的好处这里都有
+		- 一个动态代理类代理一个接口 也就是一类业务 复用成本低
+		- 一个动态代理类可以代理多个类,只需要实现了同一个接口即可
 
-- 可以使真实角色的操作更加纯粹 不用关注公共业务
-- 公共业务交给代理角色 实现业务分工
-- 公共业务发生扩展的时候,方便集中管理
+## AOP
 
-### 缺点
+### 什么是AOP
 
-- 一个真实角色就需要产生一个代理角色
-- 代码量翻倍,开发效率低
+- AOP即面向切面编程 通过预编译的方式和运行期动态代理实现程序功能的统一维护的一种技术,是OOP(面向对象编程)的延续.是软件开发热点,也是Spring框架的一个重要内容.
+- 利用AOP可以对业务逻辑的各个部分进行隔离,让业务逻辑部分之间耦合度降低,提高程序可重用性,提高开发效率
+- 不改变原有代码对程序进行前增强和后增强
+
+### AOP在Spring中的作用
+
+- 横切关注点: 跨越应用程序多个模块方法和功能. 与业务逻辑无关,注意横切关注点
+- 切面Aspect 横切关注点,被关注的对象 (它是一个类)
+- 通知Advice 切面必须要完成的工作 (类中的一个方法)
+- 目标Target 被通知的对象
+- 代理Proxy 向目标对象应用通知之后创建的对象
+- 切入点PointCut 切面通知执行点定义
+- 连接点JointPoint 与切入点匹配的执行点
+
+### 使用Spring实现AOP
+
+![image-20201206023330872](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201206023330872.png)
+
+- 使用AOP,需要在pom文件中添加一个依赖包
+
+	> ```
+	> <!--    导入对应的包-->
+	> <dependencies>
+	>     <dependency>
+	>         <groupId>org.aspectj</groupId>
+	>         <artifactId>aspectjweaver</artifactId>
+	>         <version>1.9.4</version>
+	>     </dependency>
+	> </dependencies>
+	> ```
+
+- 使用方式
+
+	- 方式1 使用Spring的AOP接口 [spring接口实现]
+	- 方式2 使用自定义类实现 [主要切面定义]
+	- 方式3 使用注解实现
+
+- 目的
+
+	- 在不影响原业务类情况下实现业务增强
+
+## 整合MyBatis
+
+### 步骤
+
+1. 导入相关jar包
+
+	- junit / mybatis / mysql / Spring / aop织入 / mybatis-spring
+
+	- 导入包代码
+
+		> ```xml
+		> <dependencies>
+		>     <dependency>
+		>         <groupId>junit</groupId>
+		>         <artifactId>junit</artifactId>
+		>         <version>4.12</version>
+		>         <scope>test</scope>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>mysql</groupId>
+		>         <artifactId>mysql-connector-java</artifactId>
+		>         <version>5.1.47</version>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>org.mybatis</groupId>
+		>         <artifactId>mybatis</artifactId>
+		>         <version>3.5.2</version>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>org.springframework</groupId>
+		>         <artifactId>spring-webmvc</artifactId>
+		>         <version>5.2.9.RELEASE</version>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>org.springframework</groupId>
+		>         <artifactId>spring-jdbc</artifactId>
+		>         <version>5.1.9.RELEASE</version>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>org.aspectj</groupId>
+		>         <artifactId>aspectjweaver</artifactId>
+		>         <version>1.9.4</version>
+		>     </dependency>
+		>     <dependency>
+		>         <groupId>org.mybatis</groupId>
+		>         <artifactId>mybatis-spring</artifactId>
+		>         <version>2.0.6</version>
+		>     </dependency>
+		> </dependencies>
+		> ```
+
+	- 
+
+2. 编写配置文件
+
+3. 测试
+
+- 回忆mybatis
+	- 编写实体类
+	- 编写核心配置文件
+	- 编写接口
+	- 编写mapper.xml
+	- 测试
+
+### mybatis-Spring
+
+- 将mybatis代码无缝整合到Spring中,允许mybatis参与到Spring事务管理中,创建映射器mapper和sqlsession并注入到bean中,以及将mybatis的异常转换为Spring的异常 最终可以做到代码不依赖与Mybatis/Spring/mybatis-Spring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+这里遇到问题 老师的图和我的图
+
+![image-20201206024921447](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201206024921447.png)
+![image-20201206024944148](/home/maoyuhuan/文档/GitHub/manjaro_learning/note/Spring.assets/image-20201206024944148.png)

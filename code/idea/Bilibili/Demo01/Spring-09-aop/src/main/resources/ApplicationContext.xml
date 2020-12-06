@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- bean注册到Spring中 所有用到的类都需要在Spring中进行注册 或者使用@Component也是可以的-->
+    <bean id="userService" class="cn.hziee.myh.service.UserServiceImpl"/>
+    <bean id="log" class="cn.hziee.myh.log.Log"/>
+    <bean id="afterLog" class="cn.hziee.myh.log.AfterLog"/>
+    <bean id="diyPointCut" class="cn.hziee.myh.diy.DiyPointCut"/>
+    <bean id="annotationPointCut" class="cn.hziee.myh.Annotation.AnnotationPointCut"/>
+
+
+    <!-- 配置AOP 需要导入AOP的约束-->
+    <!--    <aop:config>-->
+
+    <!--        方式1: 使用原生的Spring API接口-->
+    <!-- 切入点配置 expression中写的是表达式 execution(要执行的位置 修饰词 返回值 类名 方法名 参数) 多用参数不限..-->
+    <!--        <aop:pointcut id="pointCut" expression="execution(* cn.hziee.myh.service.UserServiceImpl.*(..))"/>-->
+    <!--执行环绕增强 引用切入点 将log类增强切入点-->
+    <!--        <aop:advisor advice-ref="log" pointcut-ref="pointCut"/>-->
+    <!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointCut"/>-->
+
+    <!--        方式2: 使用自定义切面类 标签-->
+    <!--        自定义切面 ref是需要引用的类-->
+    <!--        <aop:aspect ref="diyPointCut">-->
+    <!--            &lt;!&ndash;            切入点设置&ndash;&gt;-->
+    <!--            <aop:pointcut id="pointCut" expression="execution(* cn.hziee.myh.service.UserServiceImpl.*(..))"/>-->
+    <!--            &lt;!&ndash;            通知&ndash;&gt;-->
+    <!--            <aop:before method="before" pointcut-ref="pointCut"/>-->
+    <!--            <aop:after method="after" pointcut-ref="pointCut"/>-->
+    <!--        </aop:aspect>-->
+
+    <!--    </aop:config>-->
+
+    <!--    方式3 注解配置 需要开启注解支持 autoproxy 自动代理 注解-->
+<!--    开启注解支持 默认两种情况 jdk动态代理(默认 proxy-target-class="false") cglib动态代理(proxy-target-class="false")-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+</beans>

@@ -11,9 +11,11 @@
         <module name="Spring-08-proxyDemo" />
         <module name="Spring-02-helloSpring" />
         <module name="Spring-06-annotation" />
+        <module name="Spring-10-mybatis" />
         <module name="Spring-01-ioc" />
         <module name="Spring-07-appconfig" />
         <module name="Spring-04-di" />
+        <module name="Spring-09-aop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

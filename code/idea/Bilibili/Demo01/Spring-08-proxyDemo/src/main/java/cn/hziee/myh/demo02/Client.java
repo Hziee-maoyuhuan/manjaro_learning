@@ -4,12 +4,15 @@ package cn.hziee.myh.demo02;
 public class Client {
 
     public static void main(String[] args) {
-        UserServiceImpl userService = new UserServiceImpl();
 
-        userService.add();
+        UserServiceImpl userService = new UserServiceImpl();
+        // userService.add();
 
         // 如果需求每一个方法前增加一个功能,则需要修改原本已经写好的UserServiceImpl类
 
+        // 新建代理对象
+        UserServiceProxy userServiceProxy = new UserServiceProxy(userService);
+        userServiceProxy.add();
 
     }
 }
