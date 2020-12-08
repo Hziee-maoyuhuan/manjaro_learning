@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-<!--    起别名-->
+    <!--    起别名-->
     <typeAliases>
         <package name="cn.hziee.myh.pojo"/>
     </typeAliases>
@@ -21,8 +21,13 @@
 <!--        </environment>-->
 <!--    </environments>-->
 
+    <!--需要注册-->
 <!--    <mappers>-->
 <!--        <mapper class="cn.hziee.myh.mapper.UserMapper"/>-->
 <!--    </mappers>-->
+
+    <!--    <settings>-->
+    <!--        <setting name="" value=""/>-->
+    <!--    </settings>-->
 
 </configuration>
