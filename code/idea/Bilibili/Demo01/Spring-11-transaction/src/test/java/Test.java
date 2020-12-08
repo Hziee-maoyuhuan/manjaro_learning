@@ -7,11 +7,11 @@ public class Test {
 
     public static void main(String[] args) {
 
-//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        UserMapperImpl userMapper = context.getBean("userMapper", UserMapperImpl.class);
-//        for (User user : userMapper.selectUser()) {
-//            System.out.println(user);
-//        }
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserMapperImpl userMapper = context.getBean("userMapper", UserMapperImpl.class);
+        for (User user : userMapper.selectUser()) {
+            System.out.println(user);
+        }
 
     }
 }
