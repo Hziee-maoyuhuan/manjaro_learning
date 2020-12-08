@@ -16,7 +16,6 @@ public class UserMapperImpl implements UserMapper{
 
     @Override
     public List<User> selectUser() {
-        UserMapper mapper = sqlSessionTemplate.getMapper(UserMapper.class);
-        return mapper.selectUser();
+        return sqlSessionTemplate.getMapper(UserMapper.class).selectUser();
     }
 }

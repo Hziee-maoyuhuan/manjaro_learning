@@ -606,10 +606,22 @@
 ### mybatis-Spring
 
 - 将mybatis代码无缝整合到Spring中,允许mybatis参与到Spring事务管理中,创建映射器mapper和sqlsession并注入到bean中,以及将mybatis的异常转换为Spring的异常 最终可以做到代码不依赖与Mybatis/Spring/mybatis-Spring
+- 步骤
+	- 编写数据源配置
+	- SqlSessionFactory
+	- SqlSessionTemplate
+	- 需要给接口加实现类
+	- 将自己写的实现类加入到Spring容器
+	- 测试
 
+## 声明式事务
 
+### 事务回顾
 
-
+- 要么都成功 要么都失败  把一组业务当作一个业务
+- 十分重要 涉及到数据一致性问题 不能马虎
+- 确保完整性和一致性
+- 事务的ACID 原则: 原子性 一致性 隔离性 持久性
 
 
 

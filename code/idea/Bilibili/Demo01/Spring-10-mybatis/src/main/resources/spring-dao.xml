@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--    数据源datasource 使用Spring数据源替换mybatis的配置 -->
+    <!--    数据源datasource 使用Spring数据源替换mybatis的配置 c3p0等-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
-                  value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+                  value="jdbc:mysql://localhost:3306/mybatis?useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -26,8 +26,8 @@
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
-    <bean id="userMapper" class="cn.hziee.myh.mapper.UserMapperImpl">
-        <property name="sqlSessionTemplate" ref="sqlSession"/>
-    </bean>
+<!--    <bean id="userMapper" class="cn.hziee.myh.mapper.UserMapperImpl">-->
+<!--        <property name="sqlSessionTemplate" ref="sqlSession"/>-->
+<!--    </bean>-->
 
 </beans>
