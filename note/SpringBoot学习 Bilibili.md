@@ -29,19 +29,21 @@
 
 - 配置maven
 
-	>     <!--maven的setttings.xml配置文件 大概在文档180+行-->
-	>     <profile>
-	>         <id>jdk-1.8</id>
-	>         <activation>
-	>         	<activeByDefault>true</activeByDefault>
-	>         	<jdk>1.8</jdk>
-	>         </activation>
-	>         <properties>
-	>             <maven.compiler.source>1.8</maven.compiler.source>
-	>             <maven.compiler.target>1.8</maven.compiler.target>
-	>             <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-	>         </properties>
-	>     </profile>
+	> ```xml
+	> <!--maven的setttings.xml配置文件 大概在文档180+行-->
+	> <profile>
+	>     <id>jdk-1.8</id>
+	>     <activation>
+	>     	<activeByDefault>true</activeByDefault>
+	>     	<jdk>1.8</jdk>
+	>     </activation>
+	>     <properties>
+	>         <maven.compiler.source>1.8</maven.compiler.source>
+	>         <maven.compiler.target>1.8</maven.compiler.target>
+	>         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+	>     </properties>
+	> </profile>
+	> ```
 	>
 
 - 配置idea 整合maven
@@ -50,6 +52,47 @@
 	- 配置步骤
 		- 设置 -> 构建,执行,部署 -> 构建工具 -> maven -> 修改maven主路径为自己maven的位置
 
+- Hello World
+
+	- 功能: 浏览器发送hello请求 服务器接受请求并处理 响应Hello World 字符串
+
+	- 步骤
+
+		- 创建一个jar maven工程
+
+		- 导入SpringBoot相关依赖
+
+		- 编写一个主程序 用于启动Spring应用
+
+			```java
+			
+			```
+			
+		- 编写相关的Controller/Service等
+		
+		- 运行项目(只要运行main方法即可) 会自动启动Tomcat
+		
+		- 在浏览器访问本地8080端口 会返回一个错误页面 需要加入资源字符串
+		
+			> 
+		
+		- 简化部署 (生成可执行的jar包) 只需要导入一个插件
+		
+			```xml
+			<!--    插件作用: 将应用打包成一个可执行的jar包-->
+			<!--    只需要在jar包目录下使用: java -jar ${jar包名}  即可启动应用-->
+			<build>
+			    <plugins>
+			        <plugin>
+			            <groupId>org.springframework.boot</groupId>
+			            <artifactId>spring-boot-maven-plugin</artifactId>
+			        </plugin>
+			    </plugins>
+			</build>
+			
+			```
+		
+		- 
 - 
 
 ## SpringBoot 与日志
