@@ -6,7 +6,7 @@
 
     <!--    起别名-->
     <typeAliases>
-        <package name="cn.hziee.myh.pojo"/>
+        <typeAlias type="cn.hziee.myh.mapper.UserMapper2Impl" alias="User2"/>
     </typeAliases>
 
 <!--    <environments default="development">-->

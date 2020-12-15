@@ -13,6 +13,7 @@
         <module name="Spring-02-helloSpring" />
         <module name="Spring-06-annotation" />
         <module name="Spring-10-mybatis" />
+        <module name="test" />
         <module name="Spring-01-ioc" />
         <module name="Spring-07-appconfig" />
         <module name="Spring-04-di" />

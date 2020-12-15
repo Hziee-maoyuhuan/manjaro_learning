@@ -1,4 +1,6 @@
 import cn.hziee.myh.mapper.UserMapper;
+import cn.hziee.myh.mapper.UserMapper2Impl;
+import cn.hziee.myh.mapper.UserMapperImpl;
 import cn.hziee.myh.pojo.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -30,7 +32,7 @@ public class MyTest {
 
 //        集成方式2 成功
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserMapper userMapper = context.getBean("userMapper2", UserMapper.class);
+        UserMapper2Impl userMapper = context.getBean("userMapper2", UserMapper2Impl.class);
         for (User user : userMapper.selectUser()) {
             System.out.println(user);
         }

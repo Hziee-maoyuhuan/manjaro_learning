@@ -20,6 +20,7 @@
         <module>Spring-09-aop</module>
         <module>Spring-10-mybatis</module>
         <module>Spring-11-transaction</module>
+        <module>test</module>
     </modules>
 
     <dependencies>
