@@ -45,7 +45,13 @@
 	>
 	> sudo timedatectl set-local-rtc true
 
-- ll
+- Manjaro 虚拟机安装win10
+
+	- 无法启动 报错无法加载Vennom
+
+		> sudo modprobe -a vmw_vmci vmmon
+
+	- 
 
 - ll
 
